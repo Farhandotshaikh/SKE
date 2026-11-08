@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #393185;
+  --color-primary-dark: #261e73;
+  --color-accent: #ffc128;
+  --color-surface: #f8f7f5;
+  --color-sand: #e6e4e1;
+  --color-ink: #0b0b0c;
+  --color-text: #62666d;
+  --color-muted: #8a8d96;
+  --color-line: #e6e3df;
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    margin: 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+}
+
+@layer components {
+  /* 1280px content column, 80px gutters at 1440 */
+  .wrap {
+    @apply mx-auto w-full max-w-container px-5 md:px-10 xl:px-0;
+  }
+  /* Small uppercase label */
+  .eyebrow {
+    @apply font-body text-[10px] font-bold uppercase tracking-[0.16em];
+  }
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-body text-[11px] font-bold uppercase tracking-[0.14em] transition-colors duration-200;
+    height: 45px;
+    padding: 0 24px;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark;
+  }
+  .btn-white {
+    @apply btn bg-white text-primary hover:bg-accent;
+  }
+  .btn-outline-light {
+    @apply btn border border-white/50 text-white hover:bg-white hover:text-primary;
+  }
+  /* Pill filter */
+  .pill {
+    @apply inline-flex items-center rounded-full px-[15px] font-body text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-200;
+    height: 31px;
+  }
+  /* Arrow link with underline */
+  .link-line {
+    @apply inline-block border-b border-white pb-[3px] font-body text-[11px] font-bold uppercase tracking-[0.14em] text-white;
+  }
+  /* Headline pairs: bold first line, light italic second line */
+  .h-pair b {
+    font-weight: 600;
+  }
+  .h-pair i {
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+
+/* Footer ghost wordmark */
+.ghost-word {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #141415;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Custom select */
+select.ske-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+select.ske-select option {
+  color: #0b0b0c;
+}
