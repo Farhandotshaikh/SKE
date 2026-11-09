@@ -207,7 +207,7 @@ export default function About() {
         overlay="linear-gradient(90deg, rgba(57,49,133,0.9) 0%, rgba(57,49,133,0.62) 55%, rgba(38,31,115,0.38) 100%)"
         line1="A Legacy"
         line2="Since 1944"
-        className="min-h-[520px] lg:h-[594px]"
+        className="min-h-[420px] lg:h-[441px]"
       >
         <p className="mb-0 mt-7 max-w-[500px] font-display text-[18px] font-light italic leading-[1.6] text-white/90">
           The South Konkan Education Society has shaped generations of learners, from school to degree.
