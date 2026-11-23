@@ -13,6 +13,7 @@ import Institutions from './pages/Institutions'
 import Contact from './pages/Contact'
 import Alumni from './pages/Alumni'
 import NewsEvents from './pages/NewsEvents'
+import School from './pages/School'
 
 function ScrollToTopOnRoute() {
   const { pathname } = useLocation()
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Alumni" element={<Alumni />} />
           <Route path="/news-events" element={<NewsEvents />} />
+          <Route path="/institutions/:slug" element={<School />} />         
           <Route path="*" element={<ComingSoon />} />
         </Routes>
       </main>
