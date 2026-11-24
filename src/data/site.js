@@ -31,25 +31,42 @@ export const contact = {
 
 export const aboutMenu = [
   { title: 'About the Society', sub: 'Who we are and what we do', to: '/about' },
-  { title: 'History & Legacy', sub: 'From Sawantwadi, 1944 to Belagavi', to: '/about/history' },
-  { title: 'Vision & Mission', sub: 'What guides our institutions', to: '/about/vision-mission' },
-  { title: 'Leadership', sub: 'The people leading SKE', to: '/about/leadership' },
-  { title: 'Milestones', sub: 'Key moments since 1944', to: '/about/milestones' },
+  { title: 'History & Legacy', sub: 'From Sawantwadi, 1944 to Belagavi', to: '/about#history' },
+  { title: 'Vision & Mission', sub: 'What guides our institutions', to: '/about#vision-mission' },
+  { title: 'Leadership', sub: 'The people leading SKE', to: '/about#leadership' },
+  { title: 'Milestones', sub: 'Key moments since 1944', to: '/gallery' },
   { title: 'Governing Council', sub: 'Members of the Council', to: '/about/governing-council', external: true, divider: true },
 ]
 
 export const instMenu = {
   colleges: [
-    { title: 'GSS & RPD Degree College', to: '/institutions/degree', links: ['Academics', 'Admissions', 'Placements', 'IQAC'] },
-    { title: 'GSS & RPD PU College', to: '/institutions/pu', links: ['Academics', 'Admissions', 'Competitive Exams', 'Gallery'] },
-    { title: 'BCA College, Chandgad', to: '/institutions/bca-chandgad', links: ['About', 'Programmes', 'Contact'] },
+    {
+      title: 'GSS College',
+      to: '/institutions/gss-college',
+    },
+    {
+      title: 'GSS PUC',
+      to: '/institutions/gss-puc',
+    },
+    {
+      title: 'RPD Degree',
+      to: '/institutions/rpd-degree',
+    },
+    {
+      title: 'RPD PUC',
+      to: '/institutions/rpd-puc',
+    },
+    {
+      title: 'BCA College, Chandgad',
+      to: '/institutions/bca-chandgad',
+    },
   ],
   schools: [
-    'Swatantra Senani Baburao Thakur Memorial Institute',
-    'Mohanlal Rampal Bhandari Kannada School',
-    'Shri Vaikunth Mukund Shanbhag Marathi School',
-    'Swadhyay Vidyamandir High School',
-    'Thalakwadi High School',
+    { title: 'Swatantra Senani Baburao Thakur Memorial Institute', to: '/institutions/swatantra-senani-baburao-thakur-memorial-institute' },
+    { title: 'Mohanlal Rampal Bhandari Kannada School', to: '/institutions/mohanlal-rampal-bhandari-kannada-school' },
+    { title: 'Shri Vaikunth Mukund Shanbhag Marathi School', to: '/institutions/shri-vaikunth-mukund-shanbhag-marathi-school' },
+    { title: 'Swadhyay Vidyamandir High School', to: '/institutions/swadhyay-vidyamandir-high-school' },
+    { title: 'Thalakwadi High School', to: '/institutions/thalakwadi-high-school' },
   ],
 }
 
@@ -90,6 +107,11 @@ export const institutions = {
     { name: 'GSS PUC', image: img.lab, caption: 'Two defining years in the science stream, with focused guidance for CET, NEET and JEE.' },
     { name: 'RPD Degree', image: img.courtyard, caption: 'Arts, commerce and computer applications on a campus rich with heritage.' },
     { name: 'RPD PUC', image: img.corridor, caption: 'Arts and commerce streams with guidance at every stage of the journey.' },
+    {
+      name: 'BCA College, Chandgad',
+      image: img.courtyard, // Replace with actual BCA image
+      caption: 'A focused learning environment for computer applications and professional growth.',
+    },
   ],
   schools: [
     { name: 'Swatantra Senani Baburao Thakur Memorial Institute', image: img.seminar, caption: 'A caring start to learning, rooted in strong values and a sound academic base.' },

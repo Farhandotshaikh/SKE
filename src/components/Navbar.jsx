@@ -18,9 +18,8 @@ function AboutPanel() {
             <Link
               to={m.to}
               onMouseEnter={() => setHover(i)}
-              className={`flex items-center justify-between border-l-2 py-[11px] pl-5 pr-[22px] transition-colors ${
-                active ? 'border-primary bg-surface' : 'border-transparent'
-              }`}
+              className={`flex items-center justify-between border-l-2 py-[11px] pl-5 pr-[22px] transition-colors ${active ? 'border-primary bg-surface' : 'border-transparent'
+                }`}
             >
               <span>
                 <span className={`block font-display text-[15px] leading-tight ${active ? 'font-medium text-primary' : 'font-normal text-ink'}`}>
@@ -54,8 +53,12 @@ function InstitutionsPanel() {
                 <ArrowUpRight size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-                {c.links.map((l) => (
-                  <Link key={l} to={`${c.to}/${l.toLowerCase().replace(/\s+/g, '-')}`} className="text-[12.5px] text-[#555] transition-colors hover:text-primary">
+                {(c.links || []).map((l) => (
+                  <Link
+                    key={l}
+                    to={`${c.to}/${l.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="text-[12.5px] text-[#555] transition-colors hover:text-primary"
+                  >
                     {l}
                   </Link>
                 ))}
@@ -69,10 +72,10 @@ function InstitutionsPanel() {
           {instMenu.schools.map((s) => (
             <Link
               key={s}
-              to="/institutions/schools"
+              to={s.to}
               className="group flex items-center justify-between gap-4 border-b border-[var(--color-line)] py-[13px] text-[14.5px] font-medium leading-[1.25] text-ink transition-colors hover:text-primary"
             >
-              {s}
+              {s.title}
               <ChevronRight size={14} className="shrink-0 text-[#9a9ba3] transition-transform group-hover:translate-x-1" />
             </Link>
           ))}
@@ -182,9 +185,8 @@ export default function Navbar() {
                   <NavLink
                     to={n.to}
                     onFocus={() => hasMenu && enter(n.menu)}
-                    className={`flex items-center gap-1 border-b-2 pb-[6px] pt-[6px] text-[12px] font-semibold uppercase tracking-[0.04em] transition-colors ${
-                      active ? 'border-primary text-primary' : 'border-transparent text-ink hover:text-primary'
-                    }`}
+                    className={`flex items-center gap-1 border-b-2 pb-[6px] pt-[6px] text-[12px] font-semibold uppercase tracking-[0.04em] transition-colors ${active ? 'border-primary text-primary' : 'border-transparent text-ink hover:text-primary'
+                      }`}
                   >
                     {n.label}
                     {hasMenu && (

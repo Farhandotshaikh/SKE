@@ -20,12 +20,16 @@ const colleges = [
 ]
 
 // Names come from the nav data so the menu and this page never drift apart.
-const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-const schools = instMenu.schools.map((name) => ({
-    slug: slugify(name),
-    name,
-    text: 'Placeholder — one line about this institution.',
-}))
+// Generate school pages from navigation data.
+const slugify = (s) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+const schools = instMenu.schools.map((school) => ({
+  slug: slugify(school.title),
+  name: school.title,
+  to: school.to,
+  text: 'Placeholder — one line about this institution.',
+}));
 
 const filters = [
     ['all', 'All'],

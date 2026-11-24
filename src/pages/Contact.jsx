@@ -12,13 +12,9 @@ import PageHero from '../components/PageHero'
 const MAP_EMBED_URL = ''
 
 const institutionOptions = [
-  'GSS College',
-  'GSS PUC',
-  'RPD Degree',
-  'RPD PUC',
-  'BCA College, Chandgad',
+  ...instMenu.colleges,
   ...instMenu.schools,
-]
+].map((item) => item.title)
 
 const directory = [
   { name: 'GSS College', phone: '+91 00000 00000', email: 'email@domain.org', address: 'To be confirmed' },

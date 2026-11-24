@@ -159,7 +159,7 @@ function ChairmanMessage() {
 
 function GoverningBody() {
   return (
-    <section id="governing-body" className="scroll-mt-[108px] bg-surface py-16 lg:pb-[85px] lg:pt-24">
+    <section id="leadership" className="scroll-mt-[108px] bg-surface py-16 lg:pb-[85px] lg:pt-24">
       <div className="wrap">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
