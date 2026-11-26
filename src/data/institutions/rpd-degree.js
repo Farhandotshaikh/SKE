@@ -1,4 +1,4 @@
-
+import { img } from '../site'
 export default {
     slug: "rpd-degree",
     name: "RPD Degree",
@@ -42,9 +42,39 @@ export default {
             { day: "02", month: "Nov", title: "Event title goes here", venue: "Campus" },
         ],
         facilities: [
-            { icon: "book", title: "Library", image: "/images/facilities/library.jpg" },
-            { icon: "flask", title: "Science Laboratories", image: "/images/facilities/labs.jpg" },
-            { icon: "mic", title: "Auditorium", image: "/images/facilities/auditorium.jpg" },
+            { icon: "book", title: "Library", image: img.arcade },
+            { icon: "flask", title: "Science Laboratories", image: img.arcade },
+            { icon: "mic", title: "Auditorium", image: img.arcade },
         ],
+    },
+    about: {
+        hero: {
+            image: "",                       // empty falls back to the default arcade image
+            line1: "A Legacy",
+            line2: "Since 1966",
+            text: "One line about the college goes here.",
+        },
+        intro: [
+            "First paragraph about the college.",
+            "Second paragraph about the college.",
+        ],
+        introImage: "",                    // empty falls back to the gazebo image
+        milestones: [
+            { year: "1966", title: "GSS Science College", text: "Bifurcated from RPD College." },
+            { year: "1966", title: "GSS Science College", text: "Bifurcated from RPD College." },
+            { year: "1966", title: "GSS Science College", text: "Bifurcated from RPD College." },
+            { year: "1966", title: "GSS Science College", text: "Bifurcated from RPD College." },
+            { year: "1966", title: "GSS Science College", text: "Bifurcated from RPD College." },
+            // ...more
+        ],
+        vision: "Placeholder: the college's vision statement.",
+        mission: "Placeholder: the college's mission statement.",
+        message: {
+            quote: "Placeholder: a short statement from the Principal.",
+            text: "Placeholder: the Principal's message.",
+            name: "Principal Name",
+            role: "Principal, GSS College",
+            photo: "",
+        },
     },
 };

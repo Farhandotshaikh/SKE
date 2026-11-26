@@ -1,13 +1,15 @@
 import { useEffect } from 'react'
 import { Link, useLocation, useOutletContext } from 'react-router-dom'
-import { ArrowRight, Users, Target, Compass } from 'lucide-react'
-import Breadcrumb from '../../components/Breadcrumb'
+import { Home, ArrowRight, Users, Target, Compass } from 'lucide-react'
+import Crumbs from '../../components/institution/Crumbs'
 import ApplyCTA from '../../components/ApplyCTA'
 import Reveal from '../../components/Reveal'          // fixed path
 import PageHero from '../../components/PageHero'
 import { img } from '../../data/site'
 
 /* ---------- Small shared pieces (unchanged) ---------- */
+
+
 
 function Heading({ line1, line2, dark = false }) {
   return (
@@ -196,7 +198,7 @@ export default function About() {
           </p>
         )}
       </PageHero>
-      <Breadcrumb current={`About ${inst.name}`} />
+      <Crumbs inst={inst} current="About" />
       <AboutCollege inst={inst} about={about} />
       <History milestones={about.milestones} />
       <VisionMission vision={about.vision} mission={about.mission} />

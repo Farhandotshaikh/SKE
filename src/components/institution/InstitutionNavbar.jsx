@@ -80,7 +80,7 @@ export default function InstitutionNavbar({ inst }) {
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-2 lg:px-20">
           {/* Logo + college name: both come from data */}
           <Link to={base} className="flex items-center gap-3">
-            {inst.logo ? (
+            {/* {inst.logo ? (
               <img
                 src={inst.logo}
                 alt={`${inst.name} logo`}
@@ -88,7 +88,12 @@ export default function InstitutionNavbar({ inst }) {
               />
             ) : (
               <span className="h-16 w-16 rounded-full border border-dashed border-[#3a3187] bg-[#ecebf6] lg:h-[88px] lg:w-[88px]" />
-            )}
+            )} */}
+
+            <span
+              aria-hidden="true"
+              className="h-12 w-12 shrink-0 rounded-full border-[1.5px] border-dashed border-[#3a3187] bg-[#ecebf6] lg:h-[88px] lg:w-[88px]"
+            />
             <span className="font-[Poppins] text-xl font-semibold text-[#3a3187]">
               {inst.name}
             </span>
