@@ -275,8 +275,15 @@ export default function Navbar() {
                   )}
                   {n.menu === 'institutions' && mobileSub === 'institutions' && (
                     <div className="pb-3 pl-3">
-                      {[...instMenu.colleges.map((c) => c.title), ...instMenu.schools].map((t) => (
-                        <Link key={t} to="/institutions" className="block py-2 text-[14px] text-[#444]">{t}</Link>
+                      {[...instMenu.colleges, ...instMenu.schools].map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setMobile(false)}
+                          className="block py-2 text-[14px] text-[#444]"
+                        >
+                          {item.title}
+                        </Link>
                       ))}
                     </div>
                   )}

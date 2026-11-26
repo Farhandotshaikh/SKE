@@ -42,23 +42,23 @@ export const instMenu = {
   colleges: [
     {
       title: 'GSS College',
-      to: '/institutions/gss-college',
+      to: '/institute/gss-college',
     },
     {
       title: 'GSS PUC',
-      to: '/institutions/gss-puc',
+      to: '/institute/gss-puc',
     },
     {
       title: 'RPD Degree',
-      to: '/institutions/rpd-degree',
+      to: '/institute/rpd-degree',
     },
     {
       title: 'RPD PUC',
-      to: '/institutions/rpd-puc',
+      to: '/institute/rpd-puc',
     },
     {
       title: 'BCA College, Chandgad',
-      to: '/institutions/bca-chandgad',
+      to: '/institute/bca-chandgad',
     },
   ],
   schools: [
