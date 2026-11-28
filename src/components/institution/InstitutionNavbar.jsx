@@ -1,29 +1,29 @@
 // src/components/institution/InstitutionNavbar.jsx
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { ArrowUpRight, ChevronDown, Mail, Menu, Phone, Search, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Mail, Menu, Phone, Search, X, ChevronRight } from "lucide-react";
 
 // Page keys must match ALL_PAGES in data/institutions/index.js
 const NAV = [
   {
     label: "About",
+    page: "about",                       // clicking "About" opens this page
     children: [
-      { page: "about", label: "About the College" },
       { page: "organisational-structure", label: "Organisational Structure" },
     ],
   },
   {
     label: "Academics",
+    page: "academics",
     children: [
-      { page: "academics", label: "Programmes" },
       { page: "department", label: "Departments" },
       { page: "exam-prep", label: "Exam Preparation" },
     ],
   },
   {
     label: "Student Corner",
+    page: "student-corner",
     children: [
-      { page: "student-corner", label: "Events & Activities" },
       { page: "student-information", label: "Student Information" },
     ],
   },
@@ -37,9 +37,15 @@ function buildNav(inst) {
   const has = (p) => inst.pages.includes(p);
   return NAV.map((item) =>
     item.children
-      ? { ...item, children: item.children.filter((c) => has(c.page)) }
+      ? {
+        ...item,
+        children: item.children.filter((c) => has(c.page)),
+        linked: Boolean(item.page && has(item.page)),   // parent label is clickable
+      }
       : item
-  ).filter((item) => (item.children ? item.children.length > 0 : has(item.page)));
+  ).filter((item) =>
+    item.children ? item.children.length > 0 || item.linked : has(item.page)
+  );
 }
 
 const linkCls =
@@ -102,25 +108,55 @@ export default function InstitutionNavbar({ inst }) {
           {/* Desktop links */}
           <nav className="hidden items-center gap-8 lg:flex">
             {items.map((item) =>
-              item.children ? (
+              item.children?.length ? (
                 <div key={item.label} className="group relative">
-                  <button className={`${linkCls} flex items-center gap-1 py-6`}>
-                    {item.label} <ChevronDown size={14} />
-                  </button>
-                  <div className="invisible absolute left-0 top-full z-50 min-w-60 border border-slate-200 bg-white py-2 opacity-0 shadow-lg transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  {/* Parent label: chevron flips and an indigo underline slides in while open */}
+                  {item.linked ? (
+                    <NavLink to={to(item.page)} className={`${linkCls} relative flex items-center gap-1 py-6 group-hover:text-primary`}>
+                      {item.label}
+                      <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
+                      <span className="absolute inset-x-0 bottom-4 h-[2px] origin-left scale-x-0 bg-primary transition-transform group-hover:scale-x-100" />
+                    </NavLink>
+                  ) : (
+                    <button className={`${linkCls} relative flex items-center gap-1 py-6 group-hover:text-primary`}>
+                      {item.label}
+                      <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
+                      <span className="absolute inset-x-0 bottom-4 h-[2px] origin-left scale-x-0 bg-primary transition-transform group-hover:scale-x-100" />
+                    </button>
+                  )}
+
+                  {/* Panel */}
+                  <div className="invisible absolute left-0 top-full z-50 w-[300px] border-t-2 border-primary bg-white opacity-0 shadow-[0_12px_30px_rgba(20,15,80,0.12)] transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                     {item.children.map((c) => (
                       <NavLink
                         key={c.page}
                         to={to(c.page)}
-                        className="block px-5 py-2.5 text-sm text-slate-700 hover:bg-[#ecebf6] hover:text-[#3a3187]"
+                        className={({ isActive }) =>
+                          `group/item flex items-center justify-between border-l-[3px] px-6 py-[18px] transition-colors hover:border-primary hover:bg-surface ${isActive ? "border-primary bg-surface" : "border-transparent"
+                          }`
+                        }
                       >
-                        {c.label}
+                        {({ isActive }) => (
+                          <>
+                            <span
+                              className={`font-[Poppins] text-[16px] leading-tight group-hover/item:text-primary ${isActive ? "font-medium text-primary" : "text-[#0b0b1e]"
+                                }`}
+                            >
+                              {c.label}
+                            </span>
+                            <ChevronRight
+                              size={16}
+                              className={`shrink-0 text-primary transition-opacity group-hover/item:opacity-100 ${isActive ? "opacity-100" : "opacity-0"
+                                }`}
+                            />
+                          </>
+                        )}
                       </NavLink>
                     ))}
                   </div>
                 </div>
               ) : (
-                <NavLink key={item.page} to={to(item.page)} className={linkCls}>
+                <NavLink key={item.label} to={to(item.page)} className={linkCls}>
                   {item.label}
                 </NavLink>
               )
@@ -154,11 +190,19 @@ export default function InstitutionNavbar({ inst }) {
         {open && (
           <nav className="border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
             {items.map((item) =>
-              item.children ? (
+              item.children?.length ? (
                 <div key={item.label} className="py-2">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    {item.label}
-                  </p>
+                  {item.linked ? (
+                    <Link
+                      to={to(item.page)}
+                      onClick={() => setOpen(false)}
+                      className="block text-xs font-semibold uppercase tracking-wide text-[#3a3187]"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{item.label}</p>
+                  )}
                   {item.children.map((c) => (
                     <Link
                       key={c.page}
@@ -172,7 +216,7 @@ export default function InstitutionNavbar({ inst }) {
                 </div>
               ) : (
                 <Link
-                  key={item.page}
+                  key={item.label}
                   to={to(item.page)}
                   onClick={() => setOpen(false)}
                   className="block py-2 text-sm font-medium text-slate-900"

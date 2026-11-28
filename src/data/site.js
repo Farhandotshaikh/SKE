@@ -103,14 +103,16 @@ export const institutions = {
       name: 'GSS College',
       image: img.arcade,
       caption: 'Build a strong foundation in science, supported by practical learning & a dedicated faculty.',
+      to: '/institute/gss-college',
     },
-    { name: 'GSS PUC', image: img.lab, caption: 'Two defining years in the science stream, with focused guidance for CET, NEET and JEE.' },
-    { name: 'RPD Degree', image: img.courtyard, caption: 'Arts, commerce and computer applications on a campus rich with heritage.' },
-    { name: 'RPD PUC', image: img.corridor, caption: 'Arts and commerce streams with guidance at every stage of the journey.' },
+    { name: 'GSS PUC', image: img.lab, caption: 'Two defining years in the science stream, with focused guidance for CET, NEET and JEE.', to: '/institute/gss-puc' },
+    { name: 'RPD Degree', image: img.courtyard, caption: 'Arts, commerce and computer applications on a campus rich with heritage.', to: '/institute/rpd-degree' },
+    { name: 'RPD PUC', image: img.corridor, caption: 'Arts and commerce streams with guidance at every stage of the journey.', to: '/institute/rpd-puc' },
     {
       name: 'BCA College, Chandgad',
       image: img.courtyard, // Replace with actual BCA image
       caption: 'A focused learning environment for computer applications and professional growth.',
+      to: '/institute/bca-college',
     },
   ],
   schools: [
