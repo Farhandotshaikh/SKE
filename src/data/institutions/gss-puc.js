@@ -378,4 +378,40 @@ export default {
         ],
     },
     iqacHero: { image: "", line1: "Internal Quality", line2: "Assurance Cell", text: "One line about the IQAC." },
+    facilitiesHero: { image: "", line1: "Campus", line2: "Facilities", text: "One line about the campus." },
+    // Add inside each college's data file, next to main, about, structure, departments, studentCorner, placements, admissions and iqac
+    facilities: {
+        // Filter chips: "All" is added automatically, so list only the categories
+        categories: ["Academic", "Laboratories", "Sports", "Student Spaces"],
+
+        // Each tile's category must match one in categories; it is also the small amber label on the tile
+        items: [
+            { icon: "book", title: "Library", category: "Academic", image: "" },
+            { icon: "flask", title: "Science Laboratories", category: "Laboratories", image: "" },
+            { icon: "mic", title: "Auditorium", category: "Student Spaces", image: "" },
+            { icon: "trophy", title: "Sports Grounds", category: "Sports", image: "" },
+            { icon: "presentation", title: "Seminar Halls", category: "Academic", image: "" },
+            { icon: "compass", title: "Gardens", category: "Student Spaces", image: "" },
+            // ...more
+        ],
+    },
+    studentInformationHero: { image: "", line1: "Student", line2: "Information", text: "One line about student resources." },
+    studentInformation: {
+        categories: ["RTI Information", "Forms", "Circulars", "Reports", "Prospectus"],
+
+        documents: [
+            { title: "RTI information", type: "PDF", category: "RTI Information", file: "s" },
+            { title: "Application form", type: "PDF", category: "Forms", file: "s" },
+            { title: "Circular title", type: "PDF", category: "Circulars", file: "s" },
+            { title: "Annual report", type: "PDF", category: "Reports", file: "s" },
+            { title: "College prospectus", type: "PDF", category: "Prospectus", file: "s" },
+            { title: "Circular title", type: "PDF", category: "Circulars", file: "s" },
+        ],
+
+        results: {
+            text: "Results open on the university results portal.",
+            link: "",
+            buttonLabel: "View Results",
+        },
+    },
 };
